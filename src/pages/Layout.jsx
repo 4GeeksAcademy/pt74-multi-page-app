@@ -1,15 +1,27 @@
-import { Outlet } from "react-router-dom/dist"
-import ScrollToTop from "../components/ScrollToTop"
-import { Navbar } from "../components/Navbar"
-import { Footer } from "../components/Footer"
+import { Outlet } from "react-router-dom/dist";
+import ScrollToTop from "../components/ScrollToTop";
+import { useEffect } from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
-// Base component that maintains the navbar and footer throughout the page and the scroll to top functionality.
 export const Layout = () => {
-    return (
-        <ScrollToTop>
-            <Navbar />
-                <Outlet />
-            <Footer />
-        </ScrollToTop>
-    )
-}
+  const { dispatch } = useGlobalReducer();
+
+  const getData = async () => {
+    const resp = await fetch("https://library.dotlag.space/library");
+    const data = await resp.json();
+    dispatch({
+      type: "load_books",
+      books: data.books,
+    });
+  };
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  return (
+    <ScrollToTop>
+      <Outlet />
+    </ScrollToTop>
+  );
+};
