@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BookCard = ({ book }) => {
     // Style is an object in React, and not a string.
     const style = { width: "45%" };
@@ -19,14 +21,11 @@ const BookCard = ({ book }) => {
               <strong>Published:</strong> {book.year_published}
             </li>
             <li className="list-group-item">
-              <strong>ISBN-10:</strong> {book.isbn10 ? book.isbn10 : "N/A"}
-            </li>
-            <li className="list-group-item">
-              <strong>ISBN-13:</strong> {book.isbn13 ? book.isbn13 : "N/A"}
-            </li>
-            <li className="list-group-item">
-              <strong>Is this book awesome:</strong>
-              {book.is_awesome ? " Yes" : " No"}.
+              <Link to={`/books/${book.id}`}>
+                <button className="btn btn-primary">
+                  Book Page Button
+                </button>
+              </Link>
             </li>
           </ul>
         </div>
