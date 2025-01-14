@@ -13,11 +13,12 @@ export const Layout = () => {
       type: "load_books",
       books: data.books,
     });
+    console.log("This code is running everywhere!")
   };
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   return (
     <ScrollToTop>

@@ -14,6 +14,15 @@ export default function storeReducer(store, action = {}) {
     }
   }
 
+  if (action.type === "add_book") {
+    const { book } = action;
+
+    return {
+      ...store,
+      books: [...store.books, book]
+    }
+  }
+
   if (action.type === "update_book") {
     // Get the updated book
     const { updated_book } = action;
