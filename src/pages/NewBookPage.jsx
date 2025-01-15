@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
 const NewBookPage = () => {
-  const {dispatch} = useGlobalReducer();
+  const { dispatch } = useGlobalReducer();
 
   const [book, setBook] = useState({
     "title": "",

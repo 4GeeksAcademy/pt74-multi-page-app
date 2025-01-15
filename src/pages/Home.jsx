@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import BookCard from "../components/BookCard";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 

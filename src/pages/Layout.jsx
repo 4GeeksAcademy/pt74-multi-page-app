@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom/dist";
 import ScrollToTop from "../components/ScrollToTop";
 import { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Navbar } from "../components/Navbar";
 
 export const Layout = () => {
   const { dispatch } = useGlobalReducer();
@@ -22,6 +23,7 @@ export const Layout = () => {
 
   return (
     <ScrollToTop>
+      <Navbar />
       <Outlet />
     </ScrollToTop>
   );
